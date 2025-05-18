@@ -1,0 +1,42 @@
+<textarea class="hidden" id="report-md-{{report.id}}">
+{% if report.daily_title or report.daily_comment %}
+## 【{{report.daily_title}}】
+{{report.daily_comment}}
+{% endif %}
+
+## 【今週の目指す状態】
+{{report.weekly_target}}
+
+## 【本日の達成度】
+{{report.achievement_score}}：{{report.achievement_comment}}
+
+## 【GOOD】
+{{report.goods}}
+
+## 【MORE】
+{{report.mores}}
+
+## 【NEXT】
+{{report.nexts}}
+</textarea>
+<script>
+	$(`#copy-report-md-{{report.id}}`).on('click',function() {
+		mdText = $(`#report-md-{{report.id}}`).text();
+		console.log('copied Markdown report for {{report.id}}.');
+		navigator.clipboard.writeText(mdText)
+			.then(function() {
+				$('#copied-tooltip-{{report.id}}').attr('data-tip', 'Copied!');
+				$('#copied-tooltip-{{report.id}}').removeClass('tooltip-accent').addClass('tooltip-success');
+			})
+			.catch(function() {
+				$('#copied-tooltip-{{report.id}}').attr('data-tip', 'Failed to copy');
+				$('#copied-tooltip-{{report.id}}').removeClass('tooltip-accent').addClass('tooltip-error');
+			})
+	});
+	$(`#copy-report-md-{{report.id}}`).on('mouseleave',function() {
+		$('#copied-tooltip-{{report.id}}').attr('data-tip', 'Click to copy report in MD.');
+		$('#copied-tooltip-{{report.id}}').removeClass('tooltip-error');
+		$('#copied-tooltip-{{report.id}}').removeClass('tooltip-success');
+		$('#copied-tooltip-{{report.id}}').addClass('tooltip-accent');
+	})
+</script>

@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html data-theme="retro">
+	<head>
+		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+		<link href="{% static 'css/output.css' %}" rel="stylesheet" />
+		<link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+	</head>
+	<body class="w-full">
+		<div class="navbar bg-white shadow-sm h-14 p-2 fixed z-40">
+			<img src="{% static 'images/nippo_logo_transparent.png' %}" class="h-full"/>
+		</div>
+		<div class="pt-18">
+			{% block mainblock %}
+			{% endblock %}
+		</div>
+	</body>
+</html>

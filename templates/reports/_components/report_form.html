@@ -1,0 +1,47 @@
+<div class="drawer-side bg-base-300 text-base-content min-h-full w-full md:w-1/2 p-4 z-50">
+	<label for="report-form" aria-label="close sidebar" class="drawer-overlay"></label>
+	<form action="{% url 'reports:create' %}" method="post" class="bg-inherit h-full w-full">
+		{% csrf_token %}
+		<div class='space-y-4'>
+			<div class="flex justify-between align-middle">
+				<legend><h1 class="text-2xl font-extrabold">今日を振り返ろう</h1></legend>
+				<label for="report-form" class=""><i class="fa-solid fa-circle-xmark text-2xl"></i></label>
+			</div>
+			{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+			<fieldset class="fieldset">
+				<legend class="fieldset-legend text-lg">日付</legend>
+				{{form.on_date}}	
+			</fieldset>
+			<fieldset class="fieldset">
+				<legend class="fieldset-legend text-lg">今週の目指す状態</legend>
+				{{form.weekly_target}}
+			</fieldset>
+			<fieldset class="fieldset">
+				<legend class="fieldset-legend text-lg">本日の達成度</legend>
+				{{form.achievement_score}}
+			</fieldset>
+			<fieldset class="fieldset">
+				{{form.achievement_comment}}
+			</fieldset>
+			<fieldset class="fieldset">
+				<legend class="fieldset-legend text-lg">GOOD</legend>
+				{{form.goods}}
+			</fieldset>
+			<fieldset class="fieldset">
+				<legend class="fieldset-legend text-lg">MORE</legend>
+				{{form.mores}}
+			</fieldset>
+			<fieldset class="fieldset">
+				<legend class="fieldset-legend text-lg">NEXT</legend>
+				{{form.nexts}}
+			</fieldset>
+			<fieldset class="fieldset">
+				{{form.daily_title}}
+			</fieldset>
+			<fieldset class="fieldset">
+				{{form.daily_comment}}
+			</fieldset>
+			<input type="submit" class="btn btn-primary" value="作成">
+		</div>
+	</form>
+</div>

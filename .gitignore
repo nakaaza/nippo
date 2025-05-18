@@ -1,0 +1,56 @@
+# Python に共通の無視ファイル
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+*.egg
+*.pyo
+*.pyd
+
+# 環境ファイルやパッケージ管理
+env/
+venv/
+.venv/
+Pipfile.lock
+poetry.lock
+
+# Django特有
+db.sqlite3
+*.sqlite3
+media/
+staticfiles/
+
+# IDE関連
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ログ・キャッシュ
+*.log
+*.bak
+*.tmp
+*.orig
+*.cache
+
+# Node.js 関連（npm/yarn など）
+node_modules/
+package-lock.json
+yarn.lock
+
+# Tailwind のビルド済みCSS
+static/css/daisyui-theme.js
+static/css/daisyui.js
+static/css/input.css
+static/css/output.css
+static/css/tailwindcss
+
+# Vite, Webpack, Parcel など使っている場合
+dist/
+build/
+
+# VS Code Tailwind IntelliSense キャッシュ
+.tailwind-intellisense.json

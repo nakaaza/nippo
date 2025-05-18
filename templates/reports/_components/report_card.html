@@ -1,0 +1,61 @@
+{% load markdownify %}
+<div class="card w-full bg-base-200 card-sm shadow-sm">
+	<div class="card-body">
+		<div class="flex flex-row justify-between">
+			<h2 class="card-title text-xl">{{report.on_date|date:"m/d l"}}</h2>
+			<div class="tooltip tooltip-accent" id="copied-tooltip-{{report.id}}" data-tip="Click to copy report in MD.">
+				<i id="copy-report-md-{{report.id}}" class="fa-regular fa-clipboard text-xl text-accent hover:cursor-pointer"></i>
+			</div>
+			{% include "reports/_components/report_md.html" with report=report%}
+		</div>
+		{% if report.daily_title or report.daily_comment %}
+			<div class="w-full">
+				<h3 class="text-lg font-bold">{{report.daily_title}}</h3>
+				{{report.daily_comment | markdownify}}
+			</div>
+			<div class="divider my-2"></div>
+		{% endif%}
+		<div class="flex flex-col lg:flex-row align-middle lg:justify-between">
+			<div class="w-full lg:w-2/5">
+				<h3 class="text-lg font-bold">今週の目指す状態</h3>
+				{{report.weekly_target | markdownify}}
+			</div>
+			<div>
+				<div class="hidden lg:block lg:w-1/5">
+					<i class="fa-solid fa-arrow-right"></i>
+				</div>
+				<div class="w-full m-2 lg:hidden">
+					<i class="fa-solid fa-arrow-down"></i>
+				</div>
+			</div>
+			<div class="w-full lg:w-2/5">
+				<h3 class="text-lg font-bold">本日の達成度 {{report.achievement_score}}</h3>
+				{{report.achievement_comment | markdownify}}
+			</div>
+		</div>
+		<div class="divider my-2"></div>
+		<div class="stats stats-vertical lg:stats-horizontal w-full">
+			<div class="stat p-2">
+				<div class="stat-title text-lg">
+					<span class="status status-success"></span>
+					<span class="font-bold text-base-content">GOOD</span>
+				</div>
+				<div class="stat-desc text-base-content">{{report.goods | markdownify}}</div>
+			</div>
+			<div class="stat p-2">
+				<div class="stat-title text-lg">
+					<span class="status status-warning"></span>
+					<span class="font-bold text-base-content">MORE</span>
+				</div>
+				<div class="stat-desc text-base-content">{{report.mores | markdownify}}</div>
+			</div>
+			<div class="stat p-2">
+				<div class="stat-title text-lg">
+					<span class="status status-info"></span>
+					<span class="font-bold text-base-content">NEXT</span>
+				</div>
+				<div class="stat-desc text-base-content">{{report.nexts | markdownify}}</div>
+			</div>
+		</div>
+	</div>
+</div>

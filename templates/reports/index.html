@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block mainblock %}
+	<main class="container w-9/10 max-w-3xl mx-auto sm:px-1 md:px-10 py-4">
+		<div class="drawer">
+			<input id="report-form" type="checkbox" class="drawer-toggle" />
+			<div class="drawer-content">
+				<div class="flex flex-row justify-between">
+					<p class="font-mono text-3xl font-extrabold">日報</p>
+					<label for="report-form" class="btn btn-primary drawer-button">日報を書く</label>
+				</div>
+				{% if report_list_by_week %}
+					<div class="space-y-8">
+						{% for reports_by_week in report_list_by_week %}
+							{% with reports_by_week|first as head_report %}
+								<div class="divider divider-accent divider-start">{{head_report.on_date|date:"Y年 第W週"}}</div>
+							{% endwith %}
+							<div class="space-y-4">
+								{% for report in reports_by_week %}
+									{% include "reports/_components/report_card.html" with report=report %}
+								{% endfor %}
+							</div>
+						{% endfor %}
+					</div>
+				{% else %}
+					<p>No reports are available.</p>
+				{% endif %}
+			</div>
+			{% include "reports/_components/report_form.html" with form=form %}
+		</div>
+	</main>
+{% endblock %}
