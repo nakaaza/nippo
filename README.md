@@ -13,7 +13,7 @@ curl -sLo static/css/daisyui.js https://github.com/saadeghi/daisyui/releases/lat
 curl -sLo static/css/daisyui-theme.js https://github.com/saadeghi/daisyui/releases/latest/download/daisyui-theme.js
 ``` -->
 
-2. Create `static/css/input.css` and add the follwowing code.
+<!-- 2. Create `static/css/input.css` and add the follwowing code.
 
 ```css
 @import "tailwindcss" source(none);
@@ -24,7 +24,7 @@ curl -sLo static/css/daisyui-theme.js https://github.com/saadeghi/daisyui/releas
 3. Run the Tailwind CSS executable to generate output.css
 ```bash
 static/css/tailwindcss -i static/css/input.css -o static/css/output.css --watch
-```
+``` -->
 
  ## Install packages
  ```bash
