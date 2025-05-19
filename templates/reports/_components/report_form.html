@@ -1,4 +1,4 @@
-<div class="drawer-side bg-base-300 text-base-content min-h-full w-full md:w-1/2 p-4 z-50">
+<div class="drawer-side bg-base-300 text-base-content h-full w-full md:w-1/2 p-4 z-50">
 	<label for="report-form" aria-label="close sidebar" class="drawer-overlay"></label>
 	<form action="{% url 'reports:create' %}" method="post" class="bg-inherit h-full w-full">
 		{% csrf_token %}
