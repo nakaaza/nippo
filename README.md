@@ -1,5 +1,5 @@
 # How to start nippo!
-## Install daisyUI
+<!-- ## Install daisyUI
 ref: [Install daisyUI for Django](https://daisyui.com/docs/install/django/?lang=ja)
 
 1. Run the following commands on terminal app.
@@ -11,7 +11,7 @@ curl -sLo static/css/tailwindcss https://github.com/tailwindlabs/tailwindcss/rel
 chmod +x static/css/tailwindcss
 curl -sLo static/css/daisyui.js https://github.com/saadeghi/daisyui/releases/latest/download/daisyui.js
 curl -sLo static/css/daisyui-theme.js https://github.com/saadeghi/daisyui/releases/latest/download/daisyui-theme.js
-```
+``` -->
 
 2. Create `static/css/input.css` and add the follwowing code.
 
