@@ -1,23 +1,34 @@
 <textarea class="hidden" id="report-md-{{report.id}}">
 {% if report.daily_title or report.daily_comment %}
-## 【{{report.daily_title}}】
+##【{{report.daily_title}}】
+
 {{report.daily_comment}}
 {% endif %}
 
-## 【今週の目指す状態】
+##【今週の目指す状態】
+
 {{report.weekly_target}}
 
-## 【本日の達成度】
-{{report.achievement_score}}：{{report.achievement_comment}}
 
-## 【GOOD】
+##【本日の達成度：{{report.achievement_score}}】
+
+{{report.achievement_comment}}
+
+
+##【GOOD】
+
 {{report.goods}}
 
-## 【MORE】
+
+##【MORE】
+
 {{report.mores}}
 
-## 【NEXT】
+
+##【NEXT】
+
 {{report.nexts}}
+
 </textarea>
 <script>
 	$(`#copy-report-md-{{report.id}}`).on('click',function() {
